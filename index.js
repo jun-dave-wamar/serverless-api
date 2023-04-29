@@ -6,7 +6,7 @@ const app = express();
 
 
 //Import Controllers
-
+const login = require("./api/controllers/User/login/index");
 
 
 const corsOptions = {
@@ -20,9 +20,13 @@ app.use(cookieParser());
 app.use(cors(corsOptions));
 app.use(express.json());
 
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something went wrong!');
+  });
 
 //Routes
-
+app.use("/api/login", login);
 
 
 
