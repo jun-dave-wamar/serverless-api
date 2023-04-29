@@ -21,7 +21,7 @@ app.use(express.json());
 
 
 //Routes
-app.use("/api", userRouter);
+
 
 
 app.get("/", async (req, res) => {
