@@ -19,9 +19,11 @@ app.use(express.json());
 //Middleware Authentication
 
 //Import Controllers
+const userRouter = require("./api/controllers/User");
+
 
 //Routes
-
+app.use("/api", userRouter);
 
 
 app.get("/", async (req, res) => {
