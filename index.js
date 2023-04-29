@@ -6,8 +6,7 @@ const app = express();
 
 
 //Import Controllers
-
-const Login = require("./api/controllers/User/login/index");
+const login = require("./api/controllers/User/login/index");
 
 
 const corsOptions = {
@@ -23,7 +22,7 @@ app.use(express.json());
 
 
 //Routes
-app.use("/api/login", Login);
+app.use("/api/login", login);
 
 
 
