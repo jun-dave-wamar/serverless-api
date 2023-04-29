@@ -18,21 +18,22 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 
-app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).send('Something went wrong!');
+app.get("/", async (req, res) => {
+    res.json({
+      message: "Please contact info@are-ai.ae for authorization",
+      Contact: "info@are-ai.ae",
+    });
   });
+
 
 //Routes
 app.use("/api/login", login);
 
 
-app.get("/", async (req, res) => {
-  res.json({
-    message: "Please contact info@are-ai.ae for authorization",
-    Contact: "info@are-ai.ae",
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something went wrong!');
   });
-});
 
 app.listen(3001, () => {
   console.log("Server listening on port 3001");
