@@ -1,13 +1,12 @@
 const express = require("express");
 const router = express.Router();
-
 const User = require("../../../models/User");
 const connection = require("../../../../db");
-const { createToken } = require("../../../../middleware/auth");
+var bcrypt = require("bcryptjs");
 
 connection();
 
-router.post("/", async (req, res) => {
+router.post("/", async (req, res) => {a
   try {
     const { username, password } = req.body;
 
@@ -17,7 +16,12 @@ router.post("/", async (req, res) => {
       return res.status(401).json({ message: "User not found" });
     }
 
-  
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res
+        .status(401)
+        .json({ success: false, message: "Invalid credentials" });
+    }
 
     const payload = {
       user: {
@@ -27,9 +31,7 @@ router.post("/", async (req, res) => {
         role: user.role,
       },
     };
-    const token = await createToken(payload, res);
-
-    res.status(200).json({ success: true, user: payload.user, token });
+    res.status(200).json({ success: true, user: payload.user});
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
