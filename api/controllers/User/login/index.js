@@ -1,22 +1,23 @@
 const express = require("express");
 const router = express.Router();
-const User = require("../../../models/User");
+
 const connection = require("../../../../db");
 var bcrypt = require("bcryptjs");
+const { createToken } = require("../../../../middleware/auth");
 
 connection();
 
-router.post("/", async (req, res) => {a
+router.post("/", async (req, res) => {
   try {
     const { username, password } = req.body;
 
     // Check if user already exists
-    const user = await User.findOne({ username });
+    const user = "qweqweqw";
     if (!user) {
       return res.status(401).json({ message: "User not found" });
     }
 
-    const isMatch = await bcrypt.compare(password, user.password);
+    const isMatch = await bcrypt.compare(password, user);
     if (!isMatch) {
       return res
         .status(401)
@@ -31,7 +32,9 @@ router.post("/", async (req, res) => {a
         role: user.role,
       },
     };
-    res.status(200).json({ success: true, user: payload.user});
+    const token = await createToken(payload, res);
+
+    res.status(200).json({ success: true, user: payload.user, token });
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
