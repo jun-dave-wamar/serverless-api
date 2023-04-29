@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
+var bcrypt = require("bcryptjs");
 const User = require("../../../models/User");
 const connection = require("../../../../db");
-var bcrypt = require("bcryptjs");
 const { createToken } = require("../../../../middleware/auth");
 
 connection();
