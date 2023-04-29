@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const User = require("../../models/User");
-const connection = require("../../../db");
+const User = require("../../../models/User");
+const connection = require("../../../../db");
 require("dotenv").config();
 var bcrypt = require("bcryptjs");
-const { createToken } = require("../../../middleware/auth");
+const { createToken } = require("../../../../middleware/auth");
 
 connection();
 

@@ -7,10 +7,8 @@ const app = express();
 
 //Import Controllers
 
-const Login = require("./api/controllers/User/Login");
-const Register = require("./api/controllers/User/Register");
-const Users = require("./api/controllers/User/Users");
-const Logout = require("./api/controllers/User/Logout");
+const Login = require("./api/controllers/User/login/index");
+
 
 const corsOptions = {
   //origin: ["http://localhost:3001", "http://localhost:3000"],
@@ -26,9 +24,7 @@ app.use(express.json());
 
 //Routes
 app.use("/api/login", Login);
-app.use("/api/register", Register);
-app.use("/api/logout", Logout);
-app.use("/api/users", Users);
+
 
 
 
