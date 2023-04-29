@@ -1,23 +1,23 @@
 const express = require("express");
 const router = express.Router();
-
+const User = require("../../../models/User");
 const connection = require("../../../../db");
 var bcrypt = require("bcryptjs");
 const { createToken } = require("../../../../middleware/auth");
-
-connection();
+require("dotenv").config();
 
 router.post("/", async (req, res) => {
   try {
+    connection();
     const { username, password } = req.body;
 
     // Check if user already exists
-    const user = "qweqweqw";
+    const user = await User.findOne({ username });
     if (!user) {
       return res.status(401).json({ message: "User not found" });
     }
 
-    const isMatch = await bcrypt.compare(password, user);
+    const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
       return res
         .status(401)
