@@ -17,20 +17,11 @@ app.use(express.json());
 
 
 //Middleware Authentication
-const {validateToken} = require("./middleware/auth");
 
 //Import Controllers
-const {login, register, getUsers, logout} = require("./api/controllers/User");
-const {getProduct, postProduct} = require("./api/controllers/Product");
 
 //Routes
-app.post("/api/login", login);
-app.post("/api/register", register);
-app.post("/api/products", validateToken, postProduct);
 
-app.get("/api/products", validateToken, getProduct);
-app.get("/api/logout", logout);
-app.get("/api/users", validateToken, getUsers);
 
 
 app.get("/", async (req, res) => {
