@@ -3,6 +3,11 @@
 This is a template made by Jun Dave Wamar for a serverless function that calls an endpoint. It already includes endpoints for Login, Registration, create token, and refresh token with middleware that checks if the user is valid.
 🛠️ Prerequisites
 
+# Make Your Job Easier with This Template
+
+This template is designed to make the lives of MERN stack developers easier by providing a framework for building web applications using MongoDB, Express, React, and Node.js.
+
+
 # Configuration ⚙️ 
 
 Before you can use this template, you will need to configure your environment variables. Create a .env file in the root directory of your project and add the following:
