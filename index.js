@@ -6,7 +6,7 @@ const app = express();
 
 
 //Import Controllers
-const {validateToken} = require("./middleware/auth");
+
 const Login = require("./api/controllers/User/Login");
 const Register = require("./api/controllers/User/Register");
 const Users = require("./api/controllers/User/Users");
@@ -28,7 +28,7 @@ app.use(express.json());
 app.use("/api/login", Login);
 app.use("/api/register", Register);
 app.use("/api/logout", Logout);
-app.use("/api/users",validateToken, Users);
+app.use("/api/users", Users);
 
 
 
