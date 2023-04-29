@@ -8,7 +8,7 @@ const { createToken } = require("../../../../middleware/auth");
 
 connection();
 
-router.post("/login", async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const { username, password } = req.body;
 
