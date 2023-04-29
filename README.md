@@ -1,6 +1,11 @@
-# Serverless Function with Login, Registration, JSON Web Token and Refresh Token 🚀
+# Serverless Backend with Login, Registration, JSON Web Token and Refresh Token 🚀
 
 This is a template made by Jun Dave Wamar for a serverless function that calls an endpoint. It already includes endpoints for Login, Registration, create token, and refresh token with middleware that checks if the user is valid.
+
+# Make Your Job Easier with This Template
+
+This template is designed to make the lives of MERN stack developers easier by providing a framework for building web applications using MongoDB, Express, React, and Node.js.
+
 🛠️ Prerequisites
 
 # Technologies 🛠️ 
