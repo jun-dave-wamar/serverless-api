@@ -27,9 +27,6 @@ app.use((err, req, res, next) => {
 app.use("/api/login", login);
 
 
-
-
-
 app.get("/", async (req, res) => {
   res.json({
     message: "Please contact info@are-ai.ae for authorization",

@@ -2,10 +2,8 @@ const express = require("express");
 const router = express.Router();
 var bcrypt = require("bcryptjs");
 const User = require("../../../models/User");
-const connection = require("../../../../db");
-const { createToken } = require("../../../../middleware/auth");
 
-connection();
+const { createToken } = require("../../../../middleware/auth");
 
 router.post("/", async (req, res) => {
   try {
