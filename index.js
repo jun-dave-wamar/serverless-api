@@ -2,8 +2,6 @@ const express = require("express");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 require("dotenv").config();
-
-//Import Controllers
 const app = express();
 
 const corsOptions = {
@@ -17,8 +15,19 @@ app.use(cookieParser());
 app.use(cors(corsOptions));
 app.use(express.json());
 
+//Import Controllers
+const {validateToken} = require("./middleware/auth");
+const Login = require("./api/controllers/User/Login");
+const Register = require("./api/controllers/User/Register");
+const Users = require("./api/controllers/User/Users");
+const Logout = require("./api/controllers/User/Logout");
 
 //Routes
+app.use("/api/login", Login);
+app.use("/api/register", Register);
+app.use("/api/logout", Logout);
+app.use("/api/users",validateToken, Users);
+
 
 
 
