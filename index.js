@@ -4,8 +4,6 @@ const cookieParser = require("cookie-parser");
 require("dotenv").config();
 
 //Import Controllers
-const userRouter = require("./api/controllers/User");
-
 const app = express();
 
 const corsOptions = {
