@@ -1,4 +1,4 @@
-# Serverless Function with Login, Registration, JSON Web Token and Refresh Token 🚀
+# Serverless Function with Login, Registration, JSON Web Token, Refresh Token, and Authorization Access 🚀
 
 This is a template made by Jun Dave Wamar for a serverless function that calls an endpoint. It already includes endpoints for Login, Registration, create token, and refresh token with middleware that checks if the user is valid.
 🛠️ Prerequisites
