@@ -43,6 +43,12 @@ The following endpoints are included in this template:
 
     POST url_link/api/login
     POST url_link/api/register
+    POST url_link/api/products
+    
+    GET url_link/api/products
+    GET url_link/api/users
+    GET url_link/api/logout
+    
 
 # Middleware 🔒 
 
